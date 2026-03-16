@@ -6,7 +6,7 @@
 /*   By: tsiarran <tsiarran@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/03 20:48:38 by tsiarran          #+#    #+#             */
-/*   Updated: 2026/03/12 15:55:43 by tsiarran         ###   ########.fr       */
+/*   Updated: 2026/03/16 09:08:02 by tsiarran         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,11 @@ static void	convert(t_stack **a, t_stack **b)
 	int		min;
 	int		ind;
 	int		loc;
-	char	id[count_size(a) + 1];
+	char	*id;
 
 	ind = 0;
 	loc = 0;
+	id = malloc(sizeof(char)*((count_size(a))*(count_size(a))));
 	while (*a)
 	{
 		min = find_min_value(a);
@@ -36,6 +37,7 @@ static void	convert(t_stack **a, t_stack **b)
 		(*b)->index = ind;
 		ind++;
 	}
+	id[loc] = '\0';
 	loc = loc - 1;
 	while (loc >= 0)
 	{
@@ -45,6 +47,7 @@ static void	convert(t_stack **a, t_stack **b)
 			rra_ab(a);
 		loc--;
 	}
+	free (id);
 }
 
 void	push_swap(char **argv)

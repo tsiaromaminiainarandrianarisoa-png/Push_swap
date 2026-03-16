@@ -6,7 +6,7 @@
 /*   By: tsiarran <tsiarran@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/06 13:15:02 by tsiarran          #+#    #+#             */
-/*   Updated: 2026/03/11 15:28:08 by tsiarran         ###   ########.fr       */
+/*   Updated: 2026/03/16 08:04:32 by tsiarran         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,11 @@
 
 void	adaptive_strategy(t_stack **a, t_stack **b, double disorder)
 {
-	if(!a || !(*a)|| !disorder )
+	if (!a || !(*a) || !disorder)
 		return ;
-
 	medium_strategy(a, b);
 	return ;
-	/*if (disorder < 0.2)
+/*	if (disorder < 0.2)
 	{
 		simple_strategy(a, b);
 		return ;

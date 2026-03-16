@@ -6,7 +6,7 @@
 /*   By: tsiarran <tsiarran@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/12 09:58:58 by tsanjara          #+#    #+#             */
-/*   Updated: 2026/03/12 12:50:07 by tsiarran         ###   ########.fr       */
+/*   Updated: 2026/03/16 11:54:30 by tsiarran         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,19 +32,21 @@ void	medium_strategy(t_stack **a, t_stack **b)
 	while (*a)
 	{
 		numb_pb = 0;
-		while (numb_pb < chunk_size)
+		while ((*a) && (numb_pb < chunk_size))
 		{
-			if (((*a)->index) >=chunk_start && ((*a)->index <= chunk_end))
+			if (((*a)->index) >= chunk_start && ((*a)->index < chunk_end))
 			{
-				pb_numb(a, b, numb_pb);
-				if (((*b)->next) && ((*b)->index) < ((*b)->next)->index)
-					sb(b);
+				while ((*b) && ((*b)->next) && ((*a)->index) < (*b)->index)
+					rb(b);
+				numb_pb = pb_numb(a, b, numb_pb);
+				while (((*b)->index) < (ft_stacklast(*b))->index)
+					rrb(b);
 			}
 			else
 				ra(a);
 		}
-		chunk_start = chunk_end + 1;
-		chunk_end += chunk_size;
+		chunk_start = chunk_end;
+		chunk_end = chunk_end + chunk_size;
 	}
 	while (*b)
 		pa(a, b);

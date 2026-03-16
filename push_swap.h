@@ -6,7 +6,7 @@
 /*   By: tsiarran <tsiarran@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/03 20:46:20 by tsiarran          #+#    #+#             */
-/*   Updated: 2026/03/12 13:27:22 by tsiarran         ###   ########.fr       */
+/*   Updated: 2026/03/16 08:00:52 by tsiarran         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,7 @@ void	adaptive_strategy(t_stack **a, t_stack **b, double disorder);
 int		ft_atoi(const char *nptr);
 int		ft_sqrt(int nb);
 void	medium_strategy(t_stack **a, t_stack **b);
+void    simple_strategy(t_stack **a, t_stack **b);
 int		main(int argc, char **argv);
 int		find_min_value(t_stack **a);
 int		find_min_position(t_stack **a);
